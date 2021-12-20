@@ -74,7 +74,7 @@ for section in spec.sections():
             result = result.split(b"\n")[0]
         if completed_proc.returncode != 0:
             sys.stderr.write("Warning: Error running cmd '%s'\n" % cmd)
-            metadata[section][key] = "Could not run '%s'" % cmd
+            metadata[section][key] = "Error running '%s'" % cmd
         else:
             if result:
                 metadata[section][key] = result.decode('utf-8')
