@@ -56,6 +56,14 @@ for section in spec.sections():
                 compiler = prefix + compiler
             cmd = cmd.replace("{compiler}", compiler)
 
+        if "{src_dir}" in cmd:
+            if "SRC_DIR" in os.environ:
+                src_dir = os.environ["SRC_DIR"]
+            else:
+                src_dir = os.getcwd()
+
+            cmd = cmd.replace("{src_dir}", src_dir)
+
         # remove "head -n 1" and set a flag to replace it's functionality
         if cmd.endswith("| head -n 1"):
             use_first_line = True
