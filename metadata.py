@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
 #
 # This script is a python version of metadata.pl, from TuxMake.
 #
