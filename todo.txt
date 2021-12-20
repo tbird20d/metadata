@@ -1,0 +1,24 @@
+This is the todo file for metadata.py
+
+== To Do ==
+ + write basic script, copying from tuxmake/metadata.pl
+   + convert ini file into json file with metadata
+ - copy ini files from tuxmake
+ - replace "{compiler}" and "{builddir}" with appropriate values
+   for a kernel build
+   - use CROSS_COMPILE and BUILD_DIR environment vars?
+ - see the final schema for tuxmake
+   - figure out what the section names should be for each metadata item
+
+== Notes ==
+It turns out the there is a metadata.pl and a metadata.py in tuxmake
+
+metadata.pl does metadata collection
+ - converting cmds in a json file into strings
+metadata.py does more stuff
+ - convert metadata.ini files into metadata.json
+ - processing things like order, type, section names
+   - creating temporary metadata.json files
+
+Some of the commands (artifacts.ini) actually construct data files, that
+are then referenced by the metadata json output file.

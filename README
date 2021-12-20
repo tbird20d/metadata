@@ -1,0 +1,9 @@
+To gather information about the tools and build environment
+of a system, cat one or more .ini files into metadata.py
+The tools will run the commands, and save a json file
+with sections and keys for different tool version strings.
+
+example:
+  $ cat os.ini tools.ini hardware.ini os.ini \
+     | ./metadata.py | tee build_env.json
+
