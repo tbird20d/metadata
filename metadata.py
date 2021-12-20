@@ -32,7 +32,37 @@ import configparser
 import json
 import tempfile
 
-# read spec
+VERSION=(1,0,0)
+
+def usage(rcode):
+    print("""metadata.py - a tool for gathering metadata about a Linux
+build environment.
+
+To use: pipe one or more .ini files into the tool, and it will output
+metadata information, in json format.
+
+ex: cat os.ini compiler.ini | metadata.py | tee build_env.json
+
+Some commands in the supplied .ini files require the definition
+of CC or SRC_DIR in the environment.  For example:
+    $ export SRC_DIR=/usr/local/src/linux
+    $ export CC=aarch64-linux-gnu-gcc
+    $ cat os.ini compiler.ini | metadata.py | tee build_env.json
+
+options:
+    -h|--help = show this usage help
+    --version = show program version information
+""")
+    sys.exit(rcode)
+
+if "--version" in sys.argv:
+    print("metadata.py version %d.%d.%d" % VERSION)
+    sys.exit(0)
+
+if "-h" in sys.argv or "--help" in sys.argv:
+    usage(0)
+
+# read spec (ini file(s)
 spec = configparser.ConfigParser()
 spec.read_string(sys.stdin.read())
 
