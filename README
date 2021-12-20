@@ -4,6 +4,6 @@ The tools will run the commands, and save a json file
 with sections and keys for different tool version strings.
 
 example:
-  $ cat os.ini tools.ini hardware.ini os.ini \
+  $ cat os.ini compiler.ini hardware.ini uname.ini \
      | ./metadata.py | tee build_env.json
 
